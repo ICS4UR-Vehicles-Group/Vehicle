@@ -30,4 +30,8 @@ public class Vehicle
         r+="Mileage: "+mileage;
         return r;
     }
+    
+    public void drive(int distance){
+        mileage += distance;
+    }
 }
