@@ -34,4 +34,9 @@ public class Vehicle
     public void drive(int distance){
         mileage += distance;
     }
+    
+    //Accident decreases value fo car
+    public void accident(float decrease){
+        residualValue -= decrease;
+    }
 }
