@@ -1,4 +1,11 @@
-package GroupProject;
+
+/**
+ * Write a description of class d here.
+ *
+ * @author (William)
+ * @version (a version number or a date)
+ */
+ 
 
 public class Dealership {
     String name, address;
@@ -24,10 +31,17 @@ public class Dealership {
         String r = "";
         r+="Dealership: "+name;
         r+="\nAddress: "+address;
-        r+="\nVehicles:"+vehiclesNum;
+        r+="\nVehicles: "+vehiclesNum;
+        r+= "\nProfit: " + this.profit;
         //r+=Tree
         return r;
     }
+    
+    public void sellVehical(){
+        
+    }
+    
+    
 
     
 }
