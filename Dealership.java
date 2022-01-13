@@ -1,15 +1,6 @@
-
-/**
- * Write a description of class d here.
- *
- * @author (William)
- * @version (a version number or a date)
- */
- 
-
 public class Dealership {
     String name, address;
-    //Tree vehicles
+    Tree vehicles;
     byte vehiclesNum;
     float profit;
 
@@ -18,6 +9,7 @@ public class Dealership {
         address = null;
         vehiclesNum = 0;
         profit = 0.0f;
+        vehicles = new Tree(null);
     }
 
     public Dealership(String name, String address, byte n){
@@ -31,17 +23,14 @@ public class Dealership {
         String r = "";
         r+="Dealership: "+name;
         r+="\nAddress: "+address;
-        r+="\nVehicles: "+vehiclesNum;
-        r+= "\nProfit: " + this.profit;
-        //r+=Tree
+        r+="\nVehicles:"+vehiclesNum;
+        r+="\nTree:";
+        vehicles.preOrder();;
         return r;
     }
-    
-    public void sellVehical(){
-        
-    }
-    
-    
 
-    
+    public void addVehicle (Vehicle add) {
+        vehicles.insert(add);
+    }
+
 }
