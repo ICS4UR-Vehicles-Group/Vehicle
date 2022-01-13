@@ -1,3 +1,11 @@
+
+/**
+ * Write a description of class d here.
+ *
+ * @author (William & Kurt)
+ * @version (1/12/2022)
+ */
+
 public class Vehicle
 {
     //Instance variables
@@ -36,14 +44,22 @@ public class Vehicle
         r+="Mileage: "+mileage;
         return r;
     }
-
+    
     //Add distance
     public void drive(int distance){
         mileage += distance;
     }
-
+    
     //Accident decreases value fo car
     public void accident(float decrease){
         residualValue -= decrease;
+    }
+    
+    //for vehical
+    public String gasMillage(int distance, int gasUsed){
+        String str = "";
+        float gasMill = (distance / gasUsed);
+        str = (this.name + " has a gas millage of " + gasMill + " km / L.");
+        return str;
     }
 }
