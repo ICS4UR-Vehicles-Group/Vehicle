@@ -29,6 +29,10 @@ public class Dealership {
         return r;
     }
 
+    /**
+     * Adds vehicle to the binary tree
+     * @param add
+     */
     public void addVehicle (Vehicle add) {
         vehicles.insert(add);
     }
