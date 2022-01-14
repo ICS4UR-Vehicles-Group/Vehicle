@@ -44,6 +44,7 @@ public class Dealership {
     }
 
     public void sortVehiclesByPrice (float price) {
+        vehiclesTree = new Tree(null);
         byte differenceIndex = 0;
         
         for (byte i = 1; i < vehiclesList.size(); i++) {
