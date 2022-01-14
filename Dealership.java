@@ -1,15 +1,19 @@
+import java.util.ArrayList;
+
 public class Dealership {
     String name, address;
-    Tree vehicles;
+    Tree vehiclesTree;
     byte vehiclesNum;
     float profit;
+    private ArrayList<Vehicle> vehiclesList;
 
     public Dealership(){
         name = null;
         address = null;
         vehiclesNum = 0;
         profit = 0.0f;
-        vehicles = new Tree(null);
+        vehiclesTree = new Tree(null);
+        vehiclesList = new ArrayList<Vehicle>();
     }
 
     public Dealership(String name, String address, byte n){
@@ -17,6 +21,8 @@ public class Dealership {
         this.address = address;
         vehiclesNum = n;
         profit = 0.0f;
+        vehiclesTree = new Tree(null);
+        vehiclesList = new ArrayList<Vehicle>();
     }
 
     public String toString(){
@@ -25,7 +31,7 @@ public class Dealership {
         r+="\nAddress: "+address;
         r+="\nVehicles:"+vehiclesNum;
         r+="\nTree:";
-        vehicles.preOrder();;
+        vehiclesTree.preOrder();
         return r;
     }
 
@@ -33,8 +39,25 @@ public class Dealership {
      * Adds vehicle to the binary tree
      * @param add
      */
-    public void addVehicle (Vehicle add) {
-        vehicles.insert(add);
+    public void addVehicle (Vehicle newVehicle) {
+        vehiclesList.add(newVehicle);
+    }
+
+    public void sortVehiclesByPrice (float price) {
+        byte differenceIndex = 0;
+        
+        for (byte i = 1; i < vehiclesList.size(); i++) {
+            if((price - vehiclesList.get(i).price) < (vehiclesList.get(differenceIndex).price)) {
+                differenceIndex = i;
+            }
+        }
+
+        for(byte i = 0; i < vehiclesList.size(); i++) {
+            if(i != differenceIndex) {
+                vehiclesTree.insert(vehiclesList.get(i));
+            }
+        }
+        
     }
 
 }
