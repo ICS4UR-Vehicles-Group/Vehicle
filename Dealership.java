@@ -43,6 +43,10 @@ public class Dealership {
         vehiclesList.add(newVehicle);
     }
 
+    /**
+     * Sorts vehicles by price into a binary tree
+     * @param price
+     */
     public void sortVehiclesByPrice (float price) {
         vehiclesTree = new Tree(null);
         byte differenceIndex = 0;
@@ -59,6 +63,19 @@ public class Dealership {
             }
         }
         
+    }
+
+    /**
+     * sells a vehicle and increases profit by residual value of vehicle
+     * @param sell
+     * @return sold vehicle
+     */
+    public Vehicle sellVehicle (Vehicle toSell) {
+        Vehicle soldVehicle = vehiclesList.get(vehiclesList.indexOf(toSell));
+        this.profit += soldVehicle.residualValue;
+        vehiclesList.remove(toSell);
+
+        return soldVehicle;
     }
 
 }
